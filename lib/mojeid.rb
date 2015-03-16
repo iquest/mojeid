@@ -15,7 +15,6 @@ class MojeID
 
   def initialize(options={:test => false})
     @test = options[:test]
-    OpenID::fetcher.ca_file = "#{File.dirname(__FILE__)}/cert/cznic-cacert-test.pem" if @test
   end
 
   class DiscoveryFailure < OpenID::DiscoveryFailure; end
@@ -34,8 +33,7 @@ class MojeID
     identifier = @test ? MOJEID_ENDPOINT_TEST : MOJEID_ENDPOINT
     process_discovery(consumer, identifier)
     @ax_request = OpenID::AX::FetchRequest.new
-    pape_request = OpenID::PAPE::Request.new([OpenID::PAPE::AUTH_PHISHING_RESISTANT])
-    @auth_request.add_extension(pape_request)
+    @auth_request
   end
 
   def fetch_response(consumer, params, request, current_url)
