@@ -9,7 +9,7 @@ class MojeID
   include MojeIDAttributes
 
   MOJEID_ENDPOINT = "https://mojeid.cz/endpoint/"
-  MOJEID_ENDPOINT_TEST = "https://mojeid.fred.nic.cz/endpoint/"
+  MOJEID_ENDPOINT_TEST = "https://mojeid.regtest.nic.cz/endpoint/"
 
   @test = false
 
